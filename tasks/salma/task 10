@@ -1,0 +1,26 @@
+import cv2 as cv
+import matplotlib.pyplot as plt
+import numpy as np
+import sys
+
+img = cv.imread("image/4.2.03.tiff", cv.IMREAD_COLOR)
+
+img_BGR = img
+img_RGB = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+hsv_img = cv.cvtColor(img, cv.COLOR_BGR2HSV)
+
+print(type(img_BGR))
+print(type(hsv_img))
+print(type(img_RGB))
+
+cv.imshow('Mandrill (a.k.a. Baboon) - BGR', img_BGR)
+cv.waitKey(0)
+cv.destroyAllWindows()
+
+cv.imshow('Mandrill (a.k.a. Baboon) - RGB', img_RGB)
+cv.waitKey(0)
+cv.destroyAllWindows()
+
+cv.imshow( 'Mandrill (a.k.a. Baboon)- HSV', hsv_img)
+cv.waitKey(0)
+cv.destroyAllWindows()

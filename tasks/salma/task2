@@ -1,0 +1,29 @@
+import cv2 as cv
+import numpy as np
+img = cv.imread("image/4.2.03.tiff")
+# Downscale
+Scale_percent = 60
+h, w, _ = img.shape
+h = int(Scale_percent * h / 100)
+w = int(Scale_percent * w / 100)
+dim = (h, w)
+img_down = cv.resize(img, dim, interpolation=cv.INTER_AREA)
+# Upscale
+Scale_percent = 200
+h, w, _ = img.shape
+h = int(Scale_percent * h / 100)
+w = int(Scale_percent * w / 100)
+dim = (h, w)
+img_up = cv.resize(img, dim, interpolation=cv.INTER_AREA)
+# Print shapes
+print(img_down.shape)
+print(img_up.shape)
+print(img.shape)
+# Show images
+cv.imshow("Original", img)
+cv.waitKey(0)
+cv.imshow("Down Scaled image", img_down)
+cv.waitKey(0)
+cv.imshow("UP Scaled image", img_up)
+cv.waitKey(0)
+cv.destroyAllWindows()

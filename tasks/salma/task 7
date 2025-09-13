@@ -1,0 +1,28 @@
+import cv2 as cv
+import numpy as np
+img = cv.imread('image/4.2.03.tiff')
+height, width, _ = img.shape
+center = (width / 2, height / 2)
+# Rotate image by 45 degrees
+rotate_matrix = cv.getRotationMatrix2D(center=center, angle=45, scale=1)
+rotate_matrix[0, 2] += (width / 2 - center[0])
+rotate_matrix[1, 2] += (height / 2 - center[1])
+rotated_img = cv.warpAffine(img, rotate_matrix, (width, height))
+print(img.shape)
+print(rotated_img.shape)
+# Rotate image by 90 degrees
+rotate_matrix_90 = cv.getRotationMatrix2D(center=center, angle=90, scale=1)
+rotated_image_90 = cv.warpAffine(src=img, M=rotate_matrix_90, dsize=(width, height))
+# Rotate image by 180 degrees
+rotate_matrix_180 = cv.getRotationMatrix2D(center=center, angle=180, scale=1)
+rotated_image_180 = cv.warpAffine(src=img, M=rotate_matrix_180, dsize=(width, height))
+# Show all images
+cv.imshow("Original", img)
+cv.waitKey(0)
+cv.imshow("Rotated image 45", rotated_img)
+cv.waitKey(0)
+cv.imshow("Rotated image 90", rotated_image_90)
+cv.waitKey(0)
+cv.imshow("Rotated image 180", rotated_image_180)
+cv.waitKey(0)
+cv.destroyAllWindows()

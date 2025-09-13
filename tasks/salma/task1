@@ -1,0 +1,14 @@
+import cv2 as cv
+import numpy as np
+import sys
+img_BGR = cv.imread("image/4.2.03.tiff", cv.IMREAD_COLOR)
+img_grey = cv.imread("image/4.2.03.tiff", cv.IMREAD_GRAYSCALE)
+print(type(img_BGR))
+print(type(img_grey))
+assert img_BGR is not None, "can't read BGR image"
+assert img_grey is not None, "can't read grey image"
+cv.imshow('Mandrill (a.k.a. Baboon)', img_BGR)
+k = cv.waitKey(0)
+cv.imshow('Mandrill (a.k.a. Baboon)', img_grey)
+k = cv.waitKey(0)
+cv.destroyAllWindows()

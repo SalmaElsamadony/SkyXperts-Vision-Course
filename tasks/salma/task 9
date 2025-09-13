@@ -1,0 +1,23 @@
+import cv2 as cv
+import matplotlib.pyplot as plt
+import numpy as np
+import sys
+
+# Load the image in BGR format
+img_BGR = cv.imread("image/4.2.03.tiff", cv.IMREAD_COLOR)
+
+# Convert to RGB
+img_RGB = cv.cvtColor(img_BGR, cv.COLOR_BGR2RGB)
+
+print(type(img_BGR))
+print(type(img_RGB))
+
+# Show BGR image
+cv.imshow('Mandrill(a.k.a. Baboon) - BGR', img_BGR)
+cv.waitKey(0)
+cv.destroyAllWindows()
+
+# Show RGB image
+cv.imshow('Mandrill (a.k.a. Baboon)', img_RGB)
+cv.waitKey(0)
+cv.destroyAllWindows()

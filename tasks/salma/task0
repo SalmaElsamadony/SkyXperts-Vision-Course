@@ -1,0 +1,10 @@
+import cv2 as cv
+path = 'C:\Users\S_Els\Downloads\salma\image\4.2.03.tiff'
+img = cv.imread("image/4.2.03.tiff") 
+cv.__version__
+print(type(img))
+assert img is not None , "Cant read image"
+cv. imshow("Mandrill (a.k.a. Baboon)", img)
+k = cv.waitkey(0)
+cv .destroyAllWindows()
+

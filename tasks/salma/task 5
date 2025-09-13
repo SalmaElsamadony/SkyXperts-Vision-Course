@@ -1,0 +1,9 @@
+import cv2 as cv
+import numpy as np
+img = cv.imread("image/4.2.03.tiff")
+Cropped_img = img [80:200 , 100:200]
+cv.imshow("Orignal", img)
+cv.waitKey(0)
+cv.imshow("Cropped img ", Cropped_img)
+cv.waitKey(0)
+cv.destroyAllWindows()
